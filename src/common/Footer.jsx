@@ -36,11 +36,19 @@ export default function Footer() {
         path = "/products/frozen-vegetable-collection";
         break;
       case "Frozen Snacks":
+        path = "/products/rte-food-products?category=frozen-snacks";
+        break;
       case "Parathas & Naan":
+        path = "/products/rte-food-products?category=frozen-parathas";
+        break;
       case "Frozen Momos":
+        path = "/products/rte-food-products?category=frozen-momos";
+        break;
       case "Ready-to-Eat Meals":
+        path = "/products/rte-food-products?category=classic-range";
+        break;
       case "Fruit Pulp":
-        path = "/products/rte-food-products";
+        path = "/products/rte-food-products?category=frozen-fruit-pulp";
         break;
 
       // Business Segments Links

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({
   index = 0,
@@ -14,7 +15,17 @@ export default function ProductCard({
   badgeTag,
   buttonColor = "bg-[#0f2d1a]",
   buttonText = "VIEW DETAILS",
+  linkTo,
 }) {
+  const navigate = useNavigate();
+
+  const openCategory = () => {
+    if (linkTo) {
+      navigate(linkTo);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -83,6 +94,8 @@ export default function ProductCard({
           </div>
 
           <button
+            onClick={openCategory}
+            type="button"
             className={`w-full ${buttonColor} hover:opacity-90 text-white font-bold py-2 px-3 rounded-xl text-[9px] sm:text-xs transition-all shadow-lg`}
           >
             <span className="flex items-center justify-center gap-1.5 font-semibold uppercase tracking-wide">

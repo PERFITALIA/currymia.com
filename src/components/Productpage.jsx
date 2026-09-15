@@ -167,7 +167,18 @@ export default function ProductsPage() {
               ribbonColor={cat.ribbonColor}
               buttonColor={cat.buttonColor}
               badgeTag={cat.badgeTag}
-              buttonText="INQUIRE FOR SAMPLE →"
+              buttonText="VIEW PRODUCTS"
+              linkTo={
+                i === 0
+                  ? "/products/frozen-vegetable-collection"
+                  : `/products/rte-food-products?category=${[
+                      "frozen-snacks",
+                      "frozen-parathas",
+                      "frozen-momos",
+                      "classic-range",
+                      "frozen-fruit-pulp",
+                    ][i - 1]}`
+              }
             />
           ))}
         </div>

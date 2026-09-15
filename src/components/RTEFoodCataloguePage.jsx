@@ -1,9 +1,11 @@
-import { useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 import ProductCarousel from "../common/ProductCarousel";
 import {
   Snowflake, Package, Leaf, Utensils, ShoppingBag,
-  Coffee, ChevronRight, CheckCircle, ThumbsUp, Star, Search, X, Sparkles
+  Coffee, ChevronRight, ChevronDown, CheckCircle, ThumbsUp, Star, Search, X,
+  Sparkles, Layers
 } from "lucide-react";
 import useSEO from "../hooks/useSEO";
 
@@ -14,7 +16,6 @@ import { frozenSnacksData }     from "../data/frozenSnacksData";
 import { frozenMomosData }      from "../data/frozenMomosData";
 import { frozenFruitPulpData }  from "../data/frozenFruitPulpData";
 import { frozenPastesData }     from "../data/frozenPastesData";
-import { frozenWrapsData }      from "../data/frozenWrapsData";
 
 // ─── Helper: convert new-format product to ProductCarousel shape ───────────────
 function toCarouselProduct(p, defaultBadgeTag, defaultRibbonColor = "bg-[#1a5c30]") {
@@ -146,90 +147,6 @@ function buildCategories() {
       ),
     },
 
-    {
-      id: "classic-range",
-      title: "Classic Indian Curry Range",
-      subtitle: "Authentic North Indian curries & gravies in shelf-stable RETORT pouches",
-      badge: "RETORT READY MEALS · 12 SKUs",
-      color: "from-amber-50 to-orange-50",
-      borderColor: "border-amber-200",
-      products: classicCategory ? classicCategory.products : [],
-    },
-    {
-      id: "jain-range",
-      title: "Punjabi Specialty Food Range",
-      subtitle: "Rich, authentic Punjabi recipes crafted without compromise",
-      badge: "PUNJABI SPECIALTY · 11 SKUs",
-      color: "from-emerald-50 to-teal-50",
-      borderColor: "border-emerald-200",
-      products: punjabiCategory ? punjabiCategory.products : [],
-    },
-    {
-      id: "frozen-snacks",
-      title: "Frozen Snacks & Starters",
-      subtitle: "Crispy samosas, spring rolls, tikkis and kebabs ready to fry or air-fry",
-      badge: "FROZEN SNACKS · 15 SKUs",
-      color: "from-rose-50 to-amber-50",
-      borderColor: "border-rose-200",
-      products: frozenSnacksData.map((p) =>
-        toCarouselProduct(p, "CRISPY SNACK", "bg-rose-600")
-      ),
-    },
-    {
-      id: "frozen-parathas",
-      title: "Frozen Parathas, Naan & Breads",
-      subtitle: "Flaky handmade stuffed parathas, tandoori naan, roti & thepla",
-      badge: "INDIAN BREADS · 8 SKUs",
-      color: "from-yellow-50 to-amber-50",
-      borderColor: "border-yellow-200",
-      products: frozenParathasData.map((p) =>
-        toCarouselProduct(p, "FLAKY BREAD", "bg-amber-600")
-      ),
-    },
-    {
-      id: "frozen-momos",
-      title: "Frozen Momos & Dumplings",
-      subtitle: "Juicy street-style dumplings with authentic dipping chutney pairing",
-      badge: "STEAM & FRY MOMOS · 6 SKUs",
-      color: "from-purple-50 to-indigo-50",
-      borderColor: "border-purple-200",
-      products: frozenMomosData.map((p) =>
-        toCarouselProduct(p, "JUICY MOMO", "bg-purple-600")
-      ),
-    },
-    {
-      id: "frozen-pastes",
-      title: "Base Pastes & Purees",
-      subtitle: "Ginger, garlic & tomato bases — the foundation of authentic Indian cooking",
-      badge: "KITCHEN BASES · 4 SKUs",
-      color: "from-teal-50 to-cyan-50",
-      borderColor: "border-teal-200",
-      products: frozenPastesData.map((p) =>
-        toCarouselProduct(p, "PURE BASE", "bg-teal-600")
-      ),
-    },
-    {
-      id: "fruit-pulp",
-      title: "Natural Fruit Pulps",
-      subtitle: "100% natural Alphonso, Kesar mango, guava, fig & dragon fruit pulps",
-      badge: "NATURAL FRUIT PULP · 8 SKUs",
-      color: "from-orange-50 to-yellow-50",
-      borderColor: "border-orange-200",
-      products: frozenFruitPulpData.map((p) =>
-        toCarouselProduct(p, "NATURAL PULP", "bg-orange-500")
-      ),
-    },
-    {
-      id: "frozen-wraps",
-      title: "Frozen Wraps & Rolls",
-      subtitle: "Ready-to-heat street-style wraps with rich cottage cheese and vegetable fillings",
-      badge: "GRAB & GO WRAPS · 4 SKUs",
-      color: "from-green-50 to-emerald-50",
-      borderColor: "border-green-200",
-      products: frozenWrapsData.map((p) =>
-        toCarouselProduct(p, "READY WRAP", "bg-emerald-700")
-      ),
-    },
   ];
 }
 
@@ -244,6 +161,26 @@ const ICONS = [
   <Utensils    key="i7" size={24} className="text-emerald-800" />,
 ];
 
+const CATEGORY_IDS = [
+  "classic-range",
+  "jain-range",
+  "frozen-parathas",
+  "frozen-snacks",
+  "frozen-momos",
+  "frozen-fruit-pulp",
+  "frozen-pastes",
+];
+
+const CATEGORY_ALIASES = {
+  "rte-meals": "classic-range",
+  "pastes-pulps": "frozen-pastes",
+};
+
+function normalizeCategory(category) {
+  const normalizedCategory = CATEGORY_ALIASES[category] || category;
+  return CATEGORY_IDS.includes(normalizedCategory) ? normalizedCategory : "all";
+}
+
 export default function RTEFoodCataloguePage() {
   useSEO({
     title: "Ready-To-Eat (RTE) Meals & Snacks Catalogue | Currymia Foods Limited",
@@ -251,9 +188,17 @@ export default function RTEFoodCataloguePage() {
     canonical: "/products/rte-food-products",
   });
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedCategory = searchParams.get("category");
+  const initialCategory = normalizeCategory(requestedCategory);
   const [searchQuery,          setSearchQuery]          = useState("");
-  const [selectedCategory,     setSelectedCategory]     = useState("all");
+  const [selectedCategory,     setSelectedCategory]     = useState(initialCategory);
   const [collapsedCategories,  setCollapsedCategories]  = useState({});
+
+  useEffect(() => {
+    setSelectedCategory(normalizeCategory(requestedCategory));
+    setCollapsedCategories({});
+  }, [requestedCategory]);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -264,6 +209,19 @@ export default function RTEFoodCataloguePage() {
   }));
 
   const totalProductCount = allCategories.reduce((acc, cat) => acc + cat.products.length, 0);
+
+  const selectCategory = (categoryId) => {
+    const normalizedCategory = normalizeCategory(categoryId);
+    setSelectedCategory(normalizedCategory);
+    const nextParams = new URLSearchParams(searchParams);
+    if (normalizedCategory === "all") {
+      nextParams.delete("category");
+    } else {
+      nextParams.set("category", normalizedCategory);
+    }
+    setSearchParams(nextParams, { replace: true });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   // Filter by category tab + search query
   const displayedCategories = allCategories
@@ -280,8 +238,6 @@ export default function RTEFoodCataloguePage() {
       return { ...cat, products: filtered };
     })
     .filter((cat) => cat.products.length > 0);
-
-  const totalFilteredProducts = displayedCategories.reduce((acc, cat) => acc + cat.products.length, 0);
 
   const toggleCategoryCollapse = (catId) => {
     setCollapsedCategories((prev) => ({
@@ -385,7 +341,7 @@ export default function RTEFoodCataloguePage() {
           {/* Category Pills — Single row horizontally swipeable on mobile */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 sm:flex-wrap no-scrollbar">
             <button
-              onClick={() => setSelectedCategory("all")}
+              onClick={() => selectCategory("all")}
               className={`px-3 py-1 sm:py-1.5 rounded-full text-xs font-extrabold transition-all whitespace-nowrap flex-shrink-0 ${
                 selectedCategory === "all"
                   ? "bg-[#1a5c30] text-white shadow-xs"
@@ -397,7 +353,7 @@ export default function RTEFoodCataloguePage() {
             {allCategories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
+                onClick={() => selectCategory(cat.id)}
                 className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-extrabold transition-all whitespace-nowrap flex-shrink-0 flex items-center gap-1 ${
                   selectedCategory === cat.id
                     ? cat.id === "jain-range"
@@ -504,7 +460,7 @@ export default function RTEFoodCataloguePage() {
                 No products match "{searchQuery}" in {selectedCategory === "all" ? "any category" : "the selected category"}.
               </p>
               <button
-                onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}
+                onClick={() => { setSearchQuery(""); selectCategory("all"); }}
                 className="bg-[#1a5c30] hover:bg-[#0f2d1a] text-white font-bold px-6 py-2.5 rounded-full text-xs transition-all shadow-md"
               >
                 Reset Search & Filters

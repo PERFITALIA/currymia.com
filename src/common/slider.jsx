@@ -647,7 +647,11 @@ export default function ProductSlider() {
                     <button
                       onClick={() => {
                         setSelectedProduct(null);
-                        navigate(selectedProduct.path);
+                        const category = selectedProduct.subCatId;
+                        const categoryPath = category
+                          ? `${selectedProduct.path}?category=${category}`
+                          : selectedProduct.path;
+                        navigate(categoryPath);
                       }}
                       className="flex-1 flex items-center justify-center gap-1 bg-[#1a5c30] hover:bg-[#12311E] text-white font-extrabold py-2 sm:py-2.5 rounded-xl text-xs transition-all shadow-md cursor-pointer"
                     >
