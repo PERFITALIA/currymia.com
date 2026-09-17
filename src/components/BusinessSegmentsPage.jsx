@@ -128,19 +128,19 @@ export const BUSINESS_SEGMENTS_DATA = {
     shortName: "Proteins",
     tagline: "Quality-Certified Frozen, Chilled & Retail Protein Solutions",
     description:
-      "Our dedicated Protein business segment delivers world-class meat and protein products processed in state-of-the-art hygienic abattoirs and facilities with end-to-end cold-chain assurance and strict international Halal certifications.",
+      "Our dedicated Protein business segment delivers world-class mutton and protein products processed in state-of-the-art hygienic abattoirs and facilities with end-to-end cold-chain assurance and strict international Halal certifications.",
     icon: Beef,
     color: "from-amber-950 via-[#1c150c] to-stone-950",
     accentColor: "#D97706",
     subSegments: [
       {
-        id: "frozen-meat",
-        title: "Frozen Meat",
+        id: "frozen-mutton",
+        title: "Frozen Mutton",
         badge: "BLAST FROZEN AT -40°C · EXPORT QUALITY",
         tagline: "Hygienically processed, individually quick-frozen and vacuum-packed cuts",
         image3d: frozenMeat3d,
         description:
-          "Our frozen meat division specializes in prime cuts, boneless portions, and customized specifications blast-frozen at ultra-low temperatures (-40°C) to lock in natural moisture, tenderness, and vital nutrients. Designed for global export, food service wholesalers, and industrial catering.",
+          "Our frozen mutton division specializes in prime cuts, boneless portions, and customized specifications blast-frozen at ultra-low temperatures (-40°C) to lock in natural moisture, tenderness, and vital nutrients. Designed for global export, food service wholesalers, and industrial catering.",
         stats: [
           { value: "-40°C", label: "Ultra Blast Freezing" },
           { value: "100%", label: "Halal Certified" },
@@ -150,7 +150,7 @@ export const BUSINESS_SEGMENTS_DATA = {
         keyFeatures: [
           {
             title: "Advanced Blast Freezing",
-            desc: "Rapid deep-freezing prevents cell membrane rupture, preserving natural meat tenderness, texture, and juiciness.",
+            desc: "Rapid deep-freezing prevents cell membrane rupture, preserving natural mutton tenderness, texture, and juiciness.",
           },
           {
             title: "Certified Halal Compliance",
@@ -173,13 +173,13 @@ export const BUSINESS_SEGMENTS_DATA = {
         ],
       },
       {
-        id: "chilled-meat",
-        title: "Chilled Meat",
+        id: "chilled-mutton",
+        title: "Chilled Mutton",
         badge: "0°C TO 4°C CONTROL · FRESH DELIVERIES",
         tagline: "Fresh premium cuts with uninterrupted precision temperature maintenance",
         image3d: chilledMeat3d,
         description:
-          "Our chilled meat division caters to high-end hospitality, executive chef requirements, and premium gourmet butcheries requiring fresh, un-frozen meat with strict 0°C to 4°C temperature control. Air-freighted and expedited via cold logistics.",
+          "Our chilled mutton division caters to high-end hospitality, executive chef requirements, and premium gourmet butcheries requiring fresh, un-frozen mutton with strict 0°C to 4°C temperature control. Air-freighted and expedited via cold logistics.",
         stats: [
           { value: "0°C - 4°C", label: "Precision Range" },
           { value: "Daily", label: "Fresh Dispatches" },
@@ -218,7 +218,7 @@ export const BUSINESS_SEGMENTS_DATA = {
         tagline: "Convenient, hygienic, and branded consumer packs for modern retail shelves",
         image3d: retailMeat3d,
         description:
-          "The Retail protein division provides premium, consumer-ready pre-packaged portions designed for modern trade supermarket chillers and freezers. With tamper-evident packaging, clear nutrition labeling, and QR-enabled batch traceability, we bring supreme food trust to everyday families.",
+          "The Retail division provides premium, consumer-ready pre-packaged portions designed for modern trade supermarket chillers and freezers. With tamper-evident packaging, clear nutrition labeling, and QR-enabled batch traceability, we bring supreme food trust to everyday families.",
         stats: [
           { value: "100%", label: "Tamper Proof Trays" },
           { value: "QR Code", label: "Farm Traceability" },

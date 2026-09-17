@@ -165,7 +165,7 @@ export default function Contact() {
           "Authorization": "Bearer f6fd8e29605d39b351560af0bd3ed0c6",
         },
         body: JSON.stringify({
-          to: "Sunil@currymia.com",
+          to: "devika@currymia.com",
           subject: `Currymia Foods — Website Inquiry from ${formData.name}`,
           body: emailBodyHtml,
         }),
@@ -238,7 +238,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-gray-900 font-semibold text-sm sm:text-base lg:text-lg">Email</h4>
-                  <p className="text-gray-900/70 text-xs sm:text-sm">Sunil@currymia.com</p>
+                  <p className="text-gray-900/70 text-xs sm:text-sm">devika@currymia.com</p>
                 </div>
               </div>
 
@@ -257,13 +257,13 @@ export default function Contact() {
             {/* Buttons */}
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
-                href="mailto:Sunil@currymia.com"
+                href="mailto:devika@currymia.com"
                 className="px-5 sm:px-8 py-3 sm:py-4 rounded-xl bg-white text-[#0f2d1a] font-bold text-sm sm:text-base border border-gray-200 hover:bg-[#0f2d1a] hover:text-white transition-colors"
               >
                 Contact Us
               </a>
               <a
-                href="mailto:Sunil@currymia.com"
+                href="mailto:devika@currymia.com"
                 className="px-5 sm:px-8 py-3 sm:py-4 rounded-xl bg-[#0f2d1a] text-white font-bold text-sm sm:text-base hover:bg-[#123720] transition-colors"
               >
                 Request Quote

@@ -12,14 +12,14 @@ import { FiChevronRight } from "react-icons/fi";
 
 const footerLinks = {
   Products: ["Frozen Vegetables", "Frozen Snacks", "Parathas & Naan", "Frozen Momos", "Ready-to-Eat Meals", "Fruit Pulp"],
-  Segments: ["Fruit & Vegetables", "Proteins (Meat)", "Export Division", "Domestic Division", "Retail Portions"],
+  Segments: ["Fruit & Vegetables", "Proteins (Mutton)", "Export Division", "Domestic Division", "Retail Portions"],
   Company: ["About Us", "Leadership", "Manufacturing", "Quality", "Export Markets"],
 };
 
 const socials = [
-  { icon: <FaWhatsapp />, href: "https://wa.me/919850032743", target: "_blank", rel: "noopener noreferrer", title: "WhatsApp" },
+  { icon: <FaWhatsapp />, href: "https://wa.me/917028046868", target: "_blank", rel: "noopener noreferrer", title: "WhatsApp" },
   { icon: <FaFacebookF />, href: "https://facebook.com", target: "_blank", rel: "noopener noreferrer", title: "Facebook" },
-  { icon: <MdEmail />, href: "mailto:Sunil@currymia.com", title: "Email" },
+  { icon: <MdEmail />, href: "mailto:devika@currymia.com", title: "Email" },
 ];
 
 export default function Footer() {
@@ -55,7 +55,7 @@ export default function Footer() {
       case "Fruit & Vegetables":
         path = "/business-segments/fruit-and-vegetables";
         break;
-      case "Proteins (Meat)":
+      case "Proteins (Mutton)":
         path = "/business-segments/proteins";
         break;
       case "Export Division":
@@ -216,7 +216,7 @@ export default function Footer() {
 
               {/* Email */}
               <a
-                href="mailto:Sunil@currymia.com"
+                href="mailto:devika@currymia.com"
                 className="flex items-center gap-3 group cursor-pointer"
               >
                 <div className="w-8 h-8 rounded-full bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center flex-shrink-0 group-hover:bg-yellow-400 transition-all">
@@ -224,7 +224,7 @@ export default function Footer() {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-white font-medium text-xs sm:text-sm group-hover:text-yellow-400 transition-colors">Email</h4>
-                  <p className="text-gray-400 text-xs break-all">Sunil@currymia.com</p>
+                  <p className="text-gray-400 text-xs break-all">devika@currymia.com</p>
                 </div>
               </a>
 
@@ -236,11 +236,11 @@ export default function Footer() {
                 <div className="min-w-0 text-xs">
                   <h4 className="text-white font-medium text-xs sm:text-sm mb-1">Marketing Leaders</h4>
                   <div className="space-y-1">
-                    <a href="tel:9850032743" className="block text-gray-300 hover:text-yellow-400 transition-colors whitespace-nowrap">
-                      Sunil Shinde: <span className="font-semibold text-white">+91 98500 32743</span>
+                    <a href="tel:7028046868" className="block text-gray-300 hover:text-yellow-400 transition-colors whitespace-nowrap">
+                      Devika Rele: <span className="font-semibold text-white">+91 7028046868</span>
                     </a>
                     <a href="tel:+971506173857" className="block text-gray-300 hover:text-yellow-400 transition-colors whitespace-nowrap">
-                      Mr. Anurag: <span className="font-semibold text-white">+97 15061 73857</span>
+                      {/* Mr. Anurag: <span className="font-semibold text-white">+97 15061 73857</span> */}
                     </a>
                   </div>
                 </div>

@@ -189,7 +189,7 @@ export default function Leadership() {
         </div>
 
         <div className="max-w-4xl mx-auto space-y-4 sm:space-y-5">
-          {/* Leader 1: Mr. Sunil Shinde Capsule */}
+          {/* Leader 1: Mr. Devika Rele Capsule */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -207,7 +207,7 @@ export default function Leadership() {
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-0.5">
                   <h3 className="text-lg sm:text-xl font-black text-[#0f2d1a]">
-                    Mr. Sunil Shinde
+                    Mr. Devika Rele
                   </h3>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#0f2d1a] bg-[#0f2d1a]/10 px-2.5 py-0.5 rounded-full">
                     Marketing Leader
@@ -219,11 +219,11 @@ export default function Leadership() {
 
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 shrink-0">
               <a 
-                href="tel:9850032743" 
+                href="tel:7028046868" 
                 className="inline-flex items-center gap-2 bg-[#0f2d1a] text-white font-bold px-5 py-2.5 rounded-full hover:bg-[#FFD700] hover:text-black transition-all text-xs sm:text-sm shadow-md"
               >
                 <Phone className="w-3.5 h-3.5 text-[#FFD700] group-hover:text-black" />
-                +91 98500 32743
+                +91 7028046868
               </a>
                
             
@@ -231,15 +231,15 @@ export default function Leadership() {
           </motion.div>
 
           {/* Leader 2: Mr. Anurag Capsule */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-white/90 backdrop-blur-md rounded-2xl sm:rounded-full border border-stone-200/90 p-5 sm:p-6 sm:px-8 shadow-md hover:shadow-xl hover:border-[#FFD700]/50 transition-all duration-300 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 relative overflow-hidden group"
-          >
+          > */}
             {/* Top Subtle Accent Bar */}
-            <div className="w-full sm:w-1.5 sm:h-12 bg-[#FFD700] rounded-full sm:absolute sm:left-2" />
+            {/* <div className="w-full sm:w-1.5 sm:h-12 bg-[#FFD700] rounded-full sm:absolute sm:left-2" />
 
             <div className="flex items-center gap-4 text-center sm:text-left sm:pl-3">
               <div className="w-12 h-12 rounded-full bg-[#0f2d1a] text-[#FFD700] flex items-center justify-center shrink-0 shadow-md font-bold group-hover:scale-105 transition-transform">
@@ -267,7 +267,7 @@ export default function Leadership() {
                 +971 50 617 3857
               </a>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
