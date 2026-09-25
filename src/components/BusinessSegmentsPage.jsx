@@ -243,7 +243,7 @@ export const BUSINESS_SEGMENTS_DATA = {
           },
         ],
         popularItems: [
-          "Pre-cut Curry Cuts Boneless (500g Trays)",
+          "Pre-cut Curry Cuts & Boneless (500g Trays)",
           "Lean Mince (400g MAP Sealed)",
           "Marinated & Seasoned Quick-Cook Packs",
           "Premium Vacuum Skin Packs",
