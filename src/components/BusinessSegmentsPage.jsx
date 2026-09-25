@@ -135,12 +135,12 @@ export const BUSINESS_SEGMENTS_DATA = {
     subSegments: [
       {
         id: "frozen-mutton",
-        title: "Frozen Mutton",
+        title: "Mutton cubes CF",
         badge: "BLAST FROZEN AT -40°C · EXPORT QUALITY",
         tagline: "Hygienically processed, individually quick-frozen and vacuum-packed cuts",
         image3d: frozenMeat3d,
         description:
-          "Our frozen mutton division specializes in prime cuts, boneless portions, and customized specifications blast-frozen at ultra-low temperatures (-40°C) to lock in natural moisture, tenderness, and vital nutrients. Designed for global export, food service wholesalers, and industrial catering.",
+          "Our Mutton cubes CF division specializes in prime cuts, boneless portions, and customized specifications blast-frozen at ultra-low temperatures (-40°C) to lock in natural moisture, tenderness, and vital nutrients. Designed for global export, food service wholesalers, and industrial catering.",
         stats: [
           { value: "-40°C", label: "Ultra Blast Freezing" },
           { value: "100%", label: "Halal Certified" },
@@ -179,7 +179,7 @@ export const BUSINESS_SEGMENTS_DATA = {
         tagline: "Fresh premium cuts with uninterrupted precision temperature maintenance",
         image3d: chilledMeat3d,
         description:
-          "Our chilled mutton division caters to high-end hospitality, executive chef requirements, and premium gourmet butcheries requiring fresh, un-frozen mutton with strict 0°C to 4°C temperature control. Air-freighted and expedited via cold logistics.",
+          "Our chilled mutton division caters to high-end hospitality, executive chef requirements, and premium gourmet butcheries requiring fresh, un-Mutton cubes CF with strict 0°C to 4°C temperature control. Air-freighted and expedited via cold logistics.",
         stats: [
           { value: "0°C - 4°C", label: "Precision Range" },
           { value: "Daily", label: "Fresh Dispatches" },
