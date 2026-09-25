@@ -23,8 +23,7 @@ import {
 } from "lucide-react";
 import useSEO from "../hooks/useSEO";
 import OptimizedImage from "../common/OptimizedImage";
-
-import frozenMeat3d from "../assets/segments/frozen_meat_3d.jpg";
+import frozenMeat3d from "../assets/Mutton Cubes CFL.webp";
 import chilledMeat3d from "../assets/segments/chilled_meat_3d.jpg";
 import retailMeat3d from "../assets/segments/retail_meat_3d.jpg";
 import exportProduce3d from "../assets/segments/export_produce_3d.jpg";
