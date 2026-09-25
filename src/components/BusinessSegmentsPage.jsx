@@ -24,8 +24,8 @@ import {
 import useSEO from "../hooks/useSEO";
 import OptimizedImage from "../common/OptimizedImage";
 import frozenMeat3d from "../assets/Mutton Cubes CFL.webp";
-import chilledMeat3d from "../assets/segments/chilled_meat_3d.jpg";
-import retailMeat3d from "../assets/segments/retail_meat_3d.jpg";
+import chilledMeat3d from "../assets/Boneless mutton.webp";
+import retailMeat3d from "../assets/Retail mutton cubes packaging.webp";
 import exportProduce3d from "../assets/segments/export_produce_3d.jpg";
 import domesticProduce3d from "../assets/segments/domestic_produce_3d.jpg";
 
@@ -134,12 +134,12 @@ export const BUSINESS_SEGMENTS_DATA = {
     subSegments: [
       {
         id: "frozen-mutton",
-        title: "Mutton cubes CF",
+        title: "Frozen Mutton",
         badge: "BLAST FROZEN AT -40°C · EXPORT QUALITY",
         tagline: "Hygienically processed, individually quick-frozen and vacuum-packed cuts",
         image3d: frozenMeat3d,
         description:
-          "Our Mutton cubes CF division specializes in prime cuts, boneless portions, and customized specifications blast-frozen at ultra-low temperatures (-40°C) to lock in natural moisture, tenderness, and vital nutrients. Designed for global export, food service wholesalers, and industrial catering.",
+          "Our Frozen Mutton division specializes in prime cuts, boneless portions, and customized specifications blast-frozen at ultra-low temperatures (-40°C) to lock in natural moisture, tenderness, and vital nutrients. Designed for global export, food service wholesalers, and industrial catering.",
         stats: [
           { value: "-40°C", label: "Ultra Blast Freezing" },
           { value: "100%", label: "Halal Certified" },
@@ -160,13 +160,13 @@ export const BUSINESS_SEGMENTS_DATA = {
             desc: "Vacuum-sealed shrink bags and heavy-duty 20kg Master export cartons designed for rough maritime handling.",
           },
           {
-            title: "Microbial & Chemical Safety",
-            desc: "Rigorous testing for salmonella, E. coli, heavy metals, and antibiotic residues prior to every container dispatch.",
+            title: "Microbial Safety",
+            desc: "Rigorous testing for salmonella, E. coli, prior to every container dispatch.",
           },
         ],
         popularItems: [
-          "Prime Frozen Deboned Cuts",
-          "Portioned Steak & Curry Cuts",
+          "Fresh Frozen Whole Carcass",
+          "Portioned Curry Cuts & Bone-in Cubes",
           "Minced & Ground Frozen Protein Blocks",
           "Food Service Bulk Portions",
         ],
@@ -178,7 +178,7 @@ export const BUSINESS_SEGMENTS_DATA = {
         tagline: "Fresh premium cuts with uninterrupted precision temperature maintenance",
         image3d: chilledMeat3d,
         description:
-          "Our chilled mutton division caters to high-end hospitality, executive chef requirements, and premium gourmet butcheries requiring fresh, un-Mutton cubes CF with strict 0°C to 4°C temperature control. Air-freighted and expedited via cold logistics.",
+          "Our chilled mutton division caters to high-end hospitality, executive chef requirements, and premium gourmet butcheries requiring fresh, chilled Mutton with strict 0°C to 4°C temperature control. Air-freighted and expedited via cold logistics.",
         stats: [
           { value: "0°C - 4°C", label: "Precision Range" },
           { value: "Daily", label: "Fresh Dispatches" },
@@ -204,8 +204,8 @@ export const BUSINESS_SEGMENTS_DATA = {
           },
         ],
         popularItems: [
-          "Fresh Chilled Primal Cuts",
-          "Tenderized Boneless Strips & Cubes",
+          "Fresh Chilled Whole Carcass",
+          "Fresh Chilled Mutton Cubes",
           "Vacuum-Sealed Vacuum Packs",
           "Gourmet Restaurant Specifications",
         ],
@@ -243,7 +243,7 @@ export const BUSINESS_SEGMENTS_DATA = {
           },
         ],
         popularItems: [
-          "Pre-cut Curry Cuts & Steaks (500g Trays)",
+          "Pre-cut Curry Cuts Boneless (500g Trays)",
           "Lean Mince (400g MAP Sealed)",
           "Marinated & Seasoned Quick-Cook Packs",
           "Premium Vacuum Skin Packs",
@@ -263,11 +263,11 @@ export default function BusinessSegmentsPage() {
   const requestedSegment =
     segmentId ||
     queryParams.get("segment") ||
-    (location.pathname.includes("proteins") ? "proteins" : "fruit-and-vegetables");
+    (location.pathname.includes("proteins") ? "proteins" : "proteins");
 
   const currentSegment = BUSINESS_SEGMENTS_DATA[requestedSegment]
     ? requestedSegment
-    : "fruit-and-vegetables";
+    : "proteins";
 
   const segmentData = BUSINESS_SEGMENTS_DATA[currentSegment];
 

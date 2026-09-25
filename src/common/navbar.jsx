@@ -38,7 +38,7 @@ const businessSegmentsList = [
     path: "/business-segments/proteins",
     icon: <Beef size={18} className="text-amber-400" />,
     items: [
-      { label: "Mutton cubes CF", path: "/business-segments/proteins/frozen-mutton" },
+      { label: "Frozen Mutton", path: "/business-segments/proteins/frozen-mutton" },
       { label: "Chilled Mutton", path: "/business-segments/proteins/chilled-mutton" },
       { label: "Retail", path: "/business-segments/proteins/retail" },
     ],
